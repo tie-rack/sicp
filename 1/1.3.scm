@@ -2,10 +2,8 @@
 
 (define (sum-of-squares x y) (+ (square x) (square y)))
 
-(define (bigger-of-two x y) (if (> x y) x y))
-
 (define (biggest-of-three x y z)
-  (if (> x (bigger-of-two y z)) x (bigger-of-two y z)))
+  (if (and (> x y) (> x z)) x (if (> y z) y z)))
 
 (define (second-biggest-of-three x y z)
   (if (> x y)
