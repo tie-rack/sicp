@@ -3,12 +3,12 @@
 ;; the current numerator and denominator.
 
 (define (cont-frac n d k)
-  (define (iter step result)
-    (if (> step k)
+  (define (iter k result)
+    (if (= k 0)
         result
-        (iter (+ step 1)
-              (/ (n step) (+ (d step) result)))))
-  (iter 1 0.0))
+        (iter (- k 1)
+              (/ (n k) (+ (d k) result)))))
+  (iter k 0.0))
 
 (define (r-cont-frac n d k)
   (if (= k 0)
