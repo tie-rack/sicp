@@ -1,0 +1,6 @@
+(define (approximate-e k)
+  (define (d k)
+    (if (= 2 (remainder k 3))
+        (* 2 (+ (/ (- k 2) 3) 1))
+        1))
+  (+ 2 (cont-frac (lambda (i) 1.0) d k)))
