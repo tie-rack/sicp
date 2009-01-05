@@ -11,6 +11,8 @@
   (iter k 0.0))
 
 (define (r-cont-frac n d k)
-  (if (= k 0)
-      0
-      (/ (n k) (+ (d k) (r-cont-frac n d (- k 1))))))
+  (define (recurse step)
+    (if (> step k)
+        0
+        (/ (n step) (+ (d step) (recurse (+ step 1))))))
+  (recurse 1))
