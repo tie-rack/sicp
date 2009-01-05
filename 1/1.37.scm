@@ -10,3 +10,7 @@
               (/ (n step) (+ (d step) result)))))
   (iter 1 0.0))
 
+(define (r-cont-frac n d k)
+  (if (= k 0)
+      0
+      (/ (n k) (+ (d k) (r-cont-frac n d (- k 1))))))
