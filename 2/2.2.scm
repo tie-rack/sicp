@@ -20,8 +20,8 @@
   (cdr point))
 
 (define (midpoint-segment segment)
-  (make-point
-   (average (x-point (start-segment segment))
-            (x-point (end-segment segment)))
-   (average (y-point (start-segment segment))
-            (y-point (end-segment segment)))))
+  (define (average-points point)
+    (average (point (start-segment segment))
+             (point (end-segment segment))))
+  (make-point (average-points x-point)
+              (average-points y-point)))
